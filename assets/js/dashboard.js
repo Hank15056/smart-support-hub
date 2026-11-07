@@ -76,7 +76,7 @@ function drawCharts() {
         data: levels.map(level =>
           dashIncidents.filter(item => item.priority === level).length
         ),
-        backgroundColor: ["#ef4444", "#f59e0b", cssVar("--accent"), "#22c55e"],
+        backgroundColor: [cssVar("--red"), cssVar("--yellow"), cssVar("--blue"), cssVar("--green")],
         borderRadius: 6
       }]
     },
@@ -96,7 +96,7 @@ function drawCharts() {
         data: types.map(type =>
           dashRequests.filter(item => item.type === type).length
         ),
-        backgroundColor: ["#ef4444", cssVar("--accent"), "#22c55e", "#a855f7"],
+        backgroundColor: [cssVar("--red"), cssVar("--blue"), cssVar("--green"), cssVar("--purple")],
         borderColor: cssVar("--panel")
       }]
     },
