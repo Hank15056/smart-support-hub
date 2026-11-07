@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Релизы — Smart Support Hub</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">SH</span>
+        <div>
+          <b>Smart Support Hub</b>
+          <small>Внедрение и сопровождение</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><span>📊</span> Панель</a>
+        <a href="deployments.html"><span>🚀</span> Внедрения</a>
+        <a href="incidents.html"><span>🧯</span> Инциденты</a>
+        <a href="maintenance.html"><span>🛠</span> Заявки</a>
+        <a href="releases.html"><span>📦</span> Релизы</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="btn ghost small" id="resetButton" type="button">Сбросить учебные данные</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Релизы</h1>
+          <p class="muted">История версий продукта и список изменений</p>
+        </div>
+        <div class="topbar-right">
+          <span class="version-badge">Версия продукта: <b id="currentVersion">—</b></span>
+          <button class="btn ghost" id="themeButton" type="button">🌓 Тема</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="grid-2">
+          <div class="panel">
+            <h2>Новый релиз</h2>
+            <form id="releaseForm" novalidate>
+              <div class="form-grid">
+                <label>Тип изменений
+                  <select id="releaseLevel">
+                    <option value="patch">patch — только исправления</option>
+                    <option value="minor">minor — новые возможности</option>
+                    <option value="major">major — несовместимые изменения</option>
+                  </select>
+                </label>
+                <label>Дата выпуска<input id="releaseDate" type="date"></label>
+              </div>
+              <p class="muted">Следующая версия: <span class="next-version" id="nextVersion">—</span></p>
+              <label>Изменения (каждое с новой строки)
+                <textarea id="releaseChanges" placeholder="Исправлена ошибка входа&#10;Обновлено руководство"></textarea>
+              </label>
+              <p class="form-error" id="releaseError" role="alert"></p>
+              <button class="btn" type="submit">Выпустить версию</button>
+            </form>
+          </div>
+          <div class="panel">
+            <h2>Правила нумерации</h2>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Изменение</th><th>Уровень</th><th>Пример</th></tr></thead>
+                <tbody>
+                  <tr><td>Только исправления</td><td>patch</td><td>v1.2.0 → v1.2.1</td></tr>
+                  <tr><td>Новая совместимая возможность</td><td>minor</td><td>v1.2.1 → v1.3.0</td></tr>
+                  <tr><td>Несовместимые изменения</td><td>major</td><td>v1.3.0 → v2.0.0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>История версий</h2>
+          <div class="release-list" id="releaseList"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Smart Support Hub · учебный проект · Павлов А.С., группа КС 3-24 · все данные вымышленные
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/releases.js"></script>
+</body>
+</html>

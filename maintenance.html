@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заявки на изменения — Smart Support Hub</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">SH</span>
+        <div>
+          <b>Smart Support Hub</b>
+          <small>Внедрение и сопровождение</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><span>📊</span> Панель</a>
+        <a href="deployments.html"><span>🚀</span> Внедрения</a>
+        <a href="incidents.html"><span>🧯</span> Инциденты</a>
+        <a href="maintenance.html"><span>🛠</span> Заявки</a>
+        <a href="releases.html"><span>📦</span> Релизы</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="btn ghost small" id="resetButton" type="button">Сбросить учебные данные</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Заявки на изменения</h1>
+          <p class="muted">Корректирующее, адаптивное, совершенствующее и профилактическое сопровождение</p>
+        </div>
+        <div class="topbar-right">
+          <span class="version-badge">Версия продукта: <b id="currentVersion">—</b></span>
+          <button class="btn ghost" id="themeButton" type="button">🌓 Тема</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <h2>Новая заявка</h2>
+          <form id="requestForm" novalidate>
+            <div class="form-grid">
+              <label class="wide">Что нужно сделать<input id="requestTitle" placeholder="Например: добавить экспорт в PDF"></label>
+              <label>Вид сопровождения
+                <select id="requestType">
+                  <option value="corrective">Корректирующее — исправление ошибки</option>
+                  <option value="adaptive">Адаптивное — новая среда</option>
+                  <option value="perfective">Совершенствующее — новая возможность</option>
+                  <option value="preventive">Профилактическое — предупреждение проблем</option>
+                </select>
+              </label>
+              <label>Целевая версия<input id="targetVersion"></label>
+              <button class="btn" type="submit">Создать заявку</button>
+            </div>
+            <p class="form-error" id="requestError" role="alert"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Список заявок</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Заявка</th><th>Вид</th><th>Статус</th><th>Версия</th><th>Действия</th></tr>
+              </thead>
+              <tbody id="requestTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Smart Support Hub · учебный проект · Павлов А.С., группа КС 3-24 · все данные вымышленные
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/maintenance.js"></script>
+</body>
+</html>

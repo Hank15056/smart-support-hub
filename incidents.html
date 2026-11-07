@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инциденты — Smart Support Hub</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">SH</span>
+        <div>
+          <b>Smart Support Hub</b>
+          <small>Внедрение и сопровождение</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><span>📊</span> Панель</a>
+        <a href="deployments.html"><span>🚀</span> Внедрения</a>
+        <a href="incidents.html"><span>🧯</span> Инциденты</a>
+        <a href="maintenance.html"><span>🛠</span> Заявки</a>
+        <a href="releases.html"><span>📦</span> Релизы</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="btn ghost small" id="resetButton" type="button">Сбросить учебные данные</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Инциденты</h1>
+          <p class="muted">Обращения пользователей и контроль сроков SLA</p>
+        </div>
+        <div class="topbar-right">
+          <span class="version-badge">Версия продукта: <b id="currentVersion">—</b></span>
+          <button class="btn ghost" id="themeButton" type="button">🌓 Тема</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <h2>Зарегистрировать инцидент</h2>
+          <form id="incidentForm" novalidate>
+            <div class="form-grid">
+              <label class="wide">Описание проблемы<input id="title" placeholder="Например: не открывается отчёт"></label>
+              <label>Приоритет
+                <select id="priority">
+                  <option value="critical">Критический (4 ч)</option>
+                  <option value="high" selected>Высокий (8 ч)</option>
+                  <option value="medium">Средний (24 ч)</option>
+                  <option value="low">Низкий (72 ч)</option>
+                </select>
+              </label>
+              <button class="btn" type="submit">Создать инцидент</button>
+            </div>
+            <p class="form-error" id="incidentError" role="alert"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="toolbar">
+            <h2>Список инцидентов</h2>
+            <label>Статус:&nbsp;
+              <select id="statusFilter">
+                <option value="all">Все</option>
+                <option value="new">Новые</option>
+                <option value="in_progress">В работе</option>
+                <option value="resolved">Решённые</option>
+              </select>
+            </label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Описание</th><th>Приоритет</th><th>Статус</th><th>Создан</th><th>Срок SLA</th><th>SLA</th><th>Действия</th></tr>
+              </thead>
+              <tbody id="incidentTable"></tbody>
+            </table>
+          </div>
+          <p class="muted" id="incidentCount"></p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Smart Support Hub · учебный проект · Павлов А.С., группа КС 3-24 · все данные вымышленные
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/incidents.js"></script>
+</body>
+</html>

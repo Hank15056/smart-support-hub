@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель — Smart Support Hub</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">SH</span>
+        <div>
+          <b>Smart Support Hub</b>
+          <small>Внедрение и сопровождение</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html"><span>📊</span> Панель</a>
+        <a href="deployments.html"><span>🚀</span> Внедрения</a>
+        <a href="incidents.html"><span>🧯</span> Инциденты</a>
+        <a href="maintenance.html"><span>🛠</span> Заявки</a>
+        <a href="releases.html"><span>📦</span> Релизы</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="btn ghost small" id="resetButton" type="button">Сбросить учебные данные</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Панель</h1>
+          <p class="muted">Состояние внедрений, инцидентов и выпусков</p>
+        </div>
+        <div class="topbar-right">
+          <span class="version-badge">Версия продукта: <b id="currentVersion">—</b></span>
+          <button class="btn ghost" id="themeButton" type="button">🌓 Тема</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="kpi-grid">
+          <div class="kpi"><span>Активных внедрений</span><strong id="kpiDeployments">0</strong><small>не завершены</small></div>
+          <div class="kpi"><span>Открытых инцидентов</span><strong id="kpiIncidents">0</strong><small>новые и в работе</small></div>
+          <div class="kpi"><span>SLA выполнен</span><strong id="kpiSla">0%</strong><small>среди решённых</small></div>
+          <div class="kpi"><span>Текущая версия</span><strong id="kpiVersion">—</strong><small>последний релиз</small></div>
+        </section>
+
+        <section class="grid-2">
+          <div class="panel">
+            <h2>Инциденты по приоритетам</h2>
+            <div class="chart-box"><canvas id="priorityChart" aria-label="Инциденты по приоритетам"></canvas></div>
+          </div>
+          <div class="panel">
+            <h2>Заявки по видам сопровождения</h2>
+            <div class="chart-box"><canvas id="requestChart" aria-label="Заявки по видам сопровождения"></canvas></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Открытые инциденты</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Описание</th><th>Приоритет</th><th>Статус</th><th>SLA</th></tr>
+              </thead>
+              <tbody id="openIncidentTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Smart Support Hub · учебный проект · Павлов А.С., группа КС 3-24 · все данные вымышленные
+      </footer>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
